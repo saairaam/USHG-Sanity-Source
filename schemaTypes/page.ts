@@ -1,40 +1,42 @@
-import { defineType, defineField, defineArrayMember } from 'sanity'
+import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export const page = defineType({
-  type: "document",
-  name: "page",
+  type: 'document',
+  name: 'page',
   fields: [
     defineField({
-      type: "string",
-      name: "title",
+      type: 'string',
+      name: 'title',
     }),
     defineField({
-      type: "slug",
-      name: "slug",
+      type: 'slug',
+      name: 'slug',
       options: {
-        source: "title",
+        source: 'title',
         maxLength: 96,
       },
     }),
     defineField({
-      type: "array",
-      name: "sections",
-      title: "Page sections",
+      type: 'array',
+      name: 'sections',
+      title: 'Page sections',
       of: [
         defineArrayMember({
-          type: "heroBlock",
+          type: 'heroBlock',
         }),
         defineArrayMember({
-          type: "textBlock",
+          type: 'ourServiceSection',
         }),
         defineArrayMember({
-          type: "ctaBlock",
+          type: 'ourProgramsSection',
         }),
         defineArrayMember({
-          type: "imageCarousel",
+          type: 'imageCarousel',
+        }),
+        defineArrayMember({
+          type: 'video',
         }),
       ],
     }),
   ],
-});
-
+})
